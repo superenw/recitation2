@@ -130,24 +130,45 @@ Then translate it one piece at a time. **If the Python is right and the Java is 
 difference between them is the thing this exercise is teaching you.** That is the entire
 point of the session, and nothing on the rest of this list gets you there faster.
 
-### Look it up
+### Look it up — the exact chapter and video for each exercise
 
-| Stuck on | Think Java *(free, online)* | Video *(Bro Code, free)* |
-|---|---|---|
-| 1 · Integer division | **Ch 2** — Variables and Operators | #2 Variables |
-| 2 · `+` joining vs adding | **Ch 2** | #2 Variables |
-| 3 · `char` arithmetic, casting | **Ch 2** | #2 Variables |
-| 4 · `==` vs `.equals()` | **Ch 6** — Loops and Strings | #13 String methods |
-| 5 · Strings never change | **Ch 6** | #13 String methods |
-| 6 · Casting chops | **Ch 2** | #2 Variables |
-| 7 · `String.format`, `printf` | **Ch 3** — Input and Output | #3 User input |
-| 8 · `length`, `charAt`, `substring` | **Ch 6** | #13 String methods |
+Every link below goes straight to the page or the video. **Nothing here is behind a
+paywall and nothing tracks whether you use it.**
 
-- **Think Java** — <https://books.trinket.io/thinkjava2/> · free, nothing tracks it
-- **Bro Code** — <https://www.youtube.com/watch?v=xTtL8E4LzTQ> · someone typing Java and
-  running it, which is exactly the register you want here
-- **The recitation notes** for this session have the whole Python-to-Java table in one
-  place. Start there — it is the shortest thing on this list.
+| # | Exercise | Read this | Watch this |
+|---|---|---|---|
+| 1 | Integer division | [Think Java §2.5 — Arithmetic Operators](https://books.trinket.io/thinkjava2/chapter2.html) | [Variables in Java](https://www.youtube.com/watch?v=so1iUWaLmKA) · 12 min |
+| 2 | `+` joins vs adds | [Think Java §2.8 — Operators for Strings](https://books.trinket.io/thinkjava2/chapter2.html) | [Variables in Java](https://www.youtube.com/watch?v=so1iUWaLmKA) · 12 min |
+| 3 | `char` arithmetic | [Think Java §6.5 — Characters](https://books.trinket.io/thinkjava2/chapter6.html) · [§3.7 — Type Cast Operators](https://books.trinket.io/thinkjava2/chapter3.html) | [Variables in Java](https://www.youtube.com/watch?v=so1iUWaLmKA) · 12 min |
+| 4 | `==` vs `.equals()` | **[Think Java §6.10 — String Comparison](https://books.trinket.io/thinkjava2/chapter6.html)** · [§9.1 — Primitives vs Objects](https://books.trinket.io/thinkjava2/chapter9.html) | [Java String methods](https://www.youtube.com/watch?v=P9hEmbfdiuc) |
+| 5 | Strings never change | **[Think Java §9.3 — Strings Are Immutable](https://books.trinket.io/thinkjava2/chapter9.html)** | [Useful string methods in Java](https://www.youtube.com/watch?v=Ntl3DxhyrQQ) |
+| 6 | Casting chops | **[Think Java §3.7 — Type Cast Operators](https://books.trinket.io/thinkjava2/chapter3.html)** | [Java Math class](https://www.youtube.com/watch?v=w0VTlSOXBs8) · 6 min |
+| 7 | `String.format`, `printf` | [Think Java §3.5 — Formatting Output](https://books.trinket.io/thinkjava2/chapter3.html) · [§6.11 — String Formatting](https://books.trinket.io/thinkjava2/chapter6.html) | [Java Math class](https://www.youtube.com/watch?v=w0VTlSOXBs8) · 6 min |
+| 8 | `length`, `charAt`, `substring` | [Think Java §6.7–6.9 — Iteration, indexOf, Substrings](https://books.trinket.io/thinkjava2/chapter6.html) | [Java String methods](https://www.youtube.com/watch?v=P9hEmbfdiuc) |
+
+**Two of those are worth reading even if you are not stuck**, because they say the thing
+this whole session is about, better than a README can:
+
+- **[§6.10 String Comparison](https://books.trinket.io/thinkjava2/chapter6.html)** opens with
+  *"it might be tempting to use the `==` and `!=` operators. But that will almost never
+  work."* That is exercise 4, in one sentence.
+- **[§9.3 Strings Are Immutable](https://books.trinket.io/thinkjava2/chapter9.html)** walks
+  the exact `toUpperCase` example from exercise 5.
+
+> **Note the chapter numbers jump around.** Java-the-book and this-course are ordered
+> differently — the book teaches strings inside its loops chapter and immutability four
+> chapters later. You are not lost; just read the section, not the chapter.
+
+### Watch — the whole thing, if you prefer video
+
+| | |
+|---|---|
+| [**Bro Code** — the channel](https://www.youtube.com/@BroCodez) | Free, no signup. Where all of the above live |
+| [Java tutorial for beginners](https://www.youtube.com/watch?v=NBIUbTddde4) | Start here if week 1 went by fast |
+| [Java Full Course for free](https://www.youtube.com/watch?v=xTtL8E4LzTQ) | The whole language. Chaptered — jump to the part you need |
+
+These are *someone typing Java and running it*, which is exactly the register you want
+when you know what to do and not how to say it.
 
 ### Ask a person
 
