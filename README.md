@@ -13,6 +13,11 @@ them green.
 > purpose. Get as far as you get in the room, **push before you leave**, and finish the
 > rest by **Sunday Sep 6**. Nobody is expected to go eight-for-eight at the bell.
 
+> **Working on this at home and stuck?** No AI on this one — but there is a chapter, a
+> video, and a person for every single exercise. They are listed under
+> **[Stuck? Everything you are allowed to use](#stuck-everything-you-are-allowed-to-use)**.
+> Go there before you give up, and before you open a model.
+
 > **Three tests pass before you write anything.** They are `true`/`false` methods, and
 > the stub happens to guess right. A coin flip is not an implementation — write the real
 > one anyway.
@@ -93,9 +98,26 @@ builds SB1's output sentence exactly.
 
 ---
 
-## Stuck?
+## Stuck? Everything you are allowed to use
 
-**Write the Python first.** Literally, in a comment above the method:
+**No AI on this one — but "no AI" does not mean "no help."** It means the help has to be
+the kind you learn from. All of this is fair game:
+
+### Read the failure message first
+
+JUnit tells you what it wanted and what it got:
+
+```
+expected: <2> but was: <0>
+```
+
+`0` is the stub — you have not replaced it yet. Anything else means you wrote something, it
+ran, and it produced the wrong answer, which is much better news.
+
+### Write the Python first
+
+The technique that beats everything else on this page. Literally, in a comment above the
+method:
 
 ```java
 // python: return n // 2
@@ -104,42 +126,9 @@ public int half(int n) {
 }
 ```
 
-Then translate it one piece at a time. If the Python is right and the Java is wrong, the
-difference between them is the thing this exercise is teaching you.
-
-**Read the failure message.** JUnit tells you what it wanted and what it got:
-
-```
-expected: <2> but was: <0>
-```
-
-`0` is the stub — you have not replaced it yet. Anything else means you wrote something,
-it ran, and it produced the wrong number, which is much better news.
-
----
-
-## If something goes wrong
-
-| Symptom | Fix |
-|---|---|
-| `./mvnw: Permission denied` | `chmod +x mvnw`, then try again |
-| Windows: `./mvnw` does nothing | The command is `mvnw.cmd test`, without the `./` |
-| First run takes forever | Normal, once. Maven is downloading |
-| `expected: <hel> but was: <null>` | Still returning the stub's `null`. Replace it |
-| `incompatible types: possible lossy conversion from int to char` | Exercise 3. Java will not narrow for you — say `(char)` |
-| `incompatible types: possible lossy conversion from double to int` | Exercise 6. Same rule, different pair of types |
-| Tests pass locally, CI is red | You committed but did not push, or pushed to the wrong branch |
-
----
-
-## Using AI on this — and what to use instead
-
-**Tier 0 — no AI.** These are 42 assertions about how Java behaves, and a model produces
-all of them in about four seconds. It would also be the fastest way to arrive at
-Thursday's closed-book quiz having learned nothing.
-
-**"No AI" does not mean "no help."** It means the help has to be the kind you learn from.
-Here is everything you are allowed to use, and exactly where to look.
+Then translate it one piece at a time. **If the Python is right and the Java is wrong, the
+difference between them is the thing this exercise is teaching you.** That is the entire
+point of the session, and nothing on the rest of this list gets you there faster.
 
 ### Look it up
 
@@ -168,17 +157,28 @@ Here is everything you are allowed to use, and exactly where to look.
 | **Office hours** | Bring the failing test and what you already tried |
 | **Your classmates** | Talk it through, explain it to each other, compare answers. **Type your own code.** If you cannot re-derive it alone afterwards, you have not finished |
 
-### The technique that beats all of them
+---
 
-Write the Python first, in a comment, then translate it line by line:
+## If something goes wrong
 
-```java
-// python: return n // 2
-public int half(int n) {
-    return 0;
-}
-```
+| Symptom | Fix |
+|---|---|
+| `./mvnw: Permission denied` | `chmod +x mvnw`, then try again |
+| Windows: `./mvnw` does nothing | The command is `mvnw.cmd test`, without the `./` |
+| First run takes forever | Normal, once. Maven is downloading |
+| `expected: <hel> but was: <null>` | Still returning the stub's `null`. Replace it |
+| `incompatible types: possible lossy conversion from int to char` | Exercise 3. Java will not narrow for you — say `(char)` |
+| `incompatible types: possible lossy conversion from double to int` | Exercise 6. Same rule, different pair of types |
+| Tests pass locally, CI is red | You committed but did not push, or pushed to the wrong branch |
 
-If the Python is right and the Java is wrong, **the difference between them is the thing
-this exercise is teaching you.** That is the entire point of the session, and no amount of
-looking things up gets you there faster than five minutes of doing it.
+---
+
+## Using AI on this
+
+**Tier 0 — no AI.** These are 42 assertions about how Java behaves, and a model produces
+all of them in about four seconds. It would also be the fastest way to arrive at
+Thursday's closed-book quiz having learned nothing.
+
+**Everything you *can* use is listed above, under
+[Stuck?](#stuck-everything-you-are-allowed-to-use)** — the book by chapter, the videos by
+module, tutoring, office hours, and your classmates. Go there before you give up.
