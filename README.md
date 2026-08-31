@@ -26,6 +26,11 @@ them green.
 
 ## Before anything else
 
+**Fork this repo first, then clone your fork** — steps 1 to 3 of
+**[Turning it in](#turning-it-in)**. Do not clone this repo directly; you cannot push to it.
+
+Once you are inside your own clone:
+
 ```
 ./mvnw test          # macOS / Linux
 mvnw.cmd test        # Windows
@@ -59,22 +64,52 @@ re-runs every time.
 same loop you will use in a job, which is why we run it every week instead of spending a
 lecture on it.
 
-Do all of this in **your own repo** — the private one GitHub invited you to by email, named
-`recitation2-<your-github-username>`. Accept that invitation first if you have not yet.
+You are going to **fork** this repo, work in your fork, and open the pull request **inside
+your own fork**. Nine steps, and step 7 is the one people get wrong.
 
-### 1. Clone your repo and make the branch
+### 1. Fork the repo
+
+From <https://github.com/DSU-CSCI-121-F26/recitation2>, click **Fork** (top right), then
+**Create fork**. Leave *Copy the `main` branch only* checked.
+
+You land on `https://github.com/<your-username>/recitation2` — your own copy, yours to push
+to. The bar under the title will say *forked from DSU-CSCI-121-F26/recitation2*.
+
+> **A fork of a public repo is public.** Your classmates can find and read yours, and you
+> can find theirs. Talk to each other all you like — **type your own code.** If you cannot
+> re-derive it alone afterwards, you have not finished.
+
+### 2. Turn on Actions in your fork
+
+Open the **Actions** tab of your fork. You will see a banner and a green button:
+
+> **I understand my workflows, go ahead and enable them**
+
+Click it. GitHub disables workflows on brand-new forks, and if you skip this your pull
+request will never show a check and you will not know whether your tests pass.
+
+### 3. Clone your fork — not the template
 
 ```bash
-git clone https://github.com/DSU-CSCI-121-F26/recitation2-<your-username>.git
-cd recitation2-<your-username>
+git clone https://github.com/<your-username>/recitation2.git
+cd recitation2
+git remote -v
+```
+
+That last line must print **your username**. If it prints `DSU-CSCI-121-F26`, you cloned
+the template instead of your fork; delete the folder and clone again with your own URL.
+You cannot push to the template, and you will only find out at step 6.
+
+### 4. Make the branch
+
+```bash
 git switch -c recitation2
 ```
 
-`git switch -c` creates the branch and moves you onto it in one step. **Work on the branch,
-never on `main`.** Check it with `git status` — the first line should read
-`On branch recitation2`.
+Creates the branch and moves you onto it in one step. **Work on the branch, never on
+`main`.** Check with `git status` — the first line should read `On branch recitation2`.
 
-### 2. Commit after each exercise
+### 5. Commit after each exercise
 
 ```bash
 git status                                              # run this constantly
@@ -85,7 +120,7 @@ git commit -m "Exercise 1: integer division"
 Eight small commits, one per exercise, is the history I am looking for — not one commit at
 the end.
 
-### 3. Push
+### 6. Push
 
 ```bash
 git push -u origin recitation2
@@ -96,33 +131,37 @@ The `-u` is only needed the first time. After that `git push` on its own is enou
 **Committed is not submitted.** Committing saves your work on your laptop. Only pushing
 makes it exist for me.
 
-### 4. Open the pull request
+### 7. Open the pull request — inside your own fork
 
-Go to your repo on GitHub. A yellow banner appears at the top:
+**Read this step twice.** GitHub's default here is wrong for us.
+
+Go to your fork on GitHub. A yellow banner appears:
 
 > **recitation2** had recent pushes &nbsp;·&nbsp; **[ Compare & pull request ]**
 
-Click it. If the banner is gone, use **Pull requests → New pull request** instead.
+Click it. Because you are on a fork, GitHub presets the base to the **shared template**.
+Fix the four dropdowns across the top so they read:
 
-Before you click create, check the dropdowns across the top:
-
-| Dropdown | Should say |
+| Dropdown | Must say |
 |---|---|
-| **base repository** | `DSU-CSCI-121-F26/recitation2-<your-username>` — **your** repo |
+| **base repository** | `<your-username>/recitation2` — **yours**, not `DSU-CSCI-121-F26` |
 | **base** | `main` |
-| **head repository** | the same repo — yours again |
+| **head repository** | `<your-username>/recitation2` — yours again |
 | **compare** | `recitation2` |
 
-Read it as one sentence: *merge my `recitation2` branch into `main`, inside my own repo.*
+Then check the sentence GitHub prints under the title box. It must name **you on both
+sides**:
+
+> `<your-username>` wants to merge 8 commits into `<your-username>:main` from
+> `<your-username>:recitation2`
+
+If either side says `DSU-CSCI-121-F26`, go back and change **base repository**. A pull
+request opened against the template is not a submission — it puts your work in front of the
+whole class and I will close it.
+
 Give it a title, then click **Create pull request**.
 
-> **If you forked the public template instead of using your invited repo**, GitHub presets
-> **base repository** to `DSU-CSCI-121-F26/recitation2` — the template everyone shares. A
-> pull request there is not a submission, it is visible to the whole class, and I will
-> close it. Change **base repository** back to your own fork so the PR stays inside your
-> repo, with base `main` and compare `recitation2`.
-
-### 5. Watch CI
+### 8. Watch CI
 
 Within a minute or two the PR shows a check named **tests**:
 
@@ -130,11 +169,12 @@ Within a minute or two the PR shows a check named **tests**:
 |---|---|
 | 🟢 green check | all 42 pass |
 | 🔴 red X | click **Details**, scroll to the first failure, and read what it wanted |
+| nothing at all | you skipped step 2 — go turn on Actions, then push again |
 
 CI runs the same `./mvnw test` you run locally, so there should be no surprises. **You can
 see your own grade before I do.** That is the entire reason the submission is a PR.
 
-### 6. Keep pushing until Sunday
+### 9. Keep pushing until Sunday
 
 ```bash
 git add -A
@@ -148,8 +188,11 @@ comment on specific lines, you push fixes, and I merge it when it is right.
 
 ### Then go look at it
 
-Refresh the PR page and actually read it. Are your commits listed? Is the check green? The
-work is not done until you have seen it on the server.
+Refresh the PR page and actually read it. Are your commits listed? Is the check green? Does
+the title bar say your username on both sides? The work is not done until you have seen it
+on the server.
+
+**Post the link to your pull request in Canvas** so I know where to find it.
 
 ---
 
@@ -288,7 +331,9 @@ when you know what to do and not how to say it.
 | `incompatible types: possible lossy conversion from double to int` | Exercise 6. Same rule, different pair of types |
 | Tests pass locally, CI is red | You committed but did not push, or pushed to the wrong branch |
 | No **Compare & pull request** banner on GitHub | It expires. Use **Pull requests → New pull request** |
-| The PR says it will merge into `DSU-CSCI-121-F26/recitation2` | Wrong repo — that is the shared template. Change **base repository** to your own |
+| `remote: Permission to DSU-CSCI-121-F26/recitation2.git denied` | You cloned the template, not your fork. `git remote -v` must show your username |
+| The PR has no **tests** check at all | Actions are off on your fork. Actions tab → *I understand my workflows* (step 2) |
+| The PR says it will merge into `DSU-CSCI-121-F26/recitation2` | GitHub's default on a fork, and it is wrong. Change **base repository** to `<your-username>/recitation2` |
 | `git push` rejected: `src refspec recitation2 does not match any` | You are still on `main`. `git switch -c recitation2`, then push |
 | The PR shows **0 commits** / nothing to compare | You pushed the branch but committed nothing to it yet |
 | Finished more exercises — do I open a second PR? | No. `git push` to the same branch; the open PR updates itself |
