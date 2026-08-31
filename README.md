@@ -44,16 +44,112 @@ open the class  →  read the comment  →  write one line  →  ./mvnw test  �
 Commit after **each exercise you finish**, not once at the end. Eight small commits is
 the shape of the history I am looking for.
 
-**Before you leave the room**, whatever you have finished:
+**Before you leave the room**, push whatever you have finished and open the pull request —
+step by step under **[Turning it in](#turning-it-in)** below. **The pull request is the
+submission.** Push again as you finish the rest at home; the PR updates itself and CI
+re-runs every time.
 
+**Due Sunday Sep 6, 11:59 PM**, same as the drills.
+
+---
+
+## Turning it in
+
+**The pull request is the submission.** Not the commit, not the push — the PR. This is the
+same loop you will use in a job, which is why we run it every week instead of spending a
+lecture on it.
+
+Do all of this in **your own repo** — the private one GitHub invited you to by email, named
+`recitation2-<your-github-username>`. Accept that invitation first if you have not yet.
+
+### 1. Clone your repo and make the branch
+
+```bash
+git clone https://github.com/DSU-CSCI-121-F26/recitation2-<your-username>.git
+cd recitation2-<your-username>
+git switch -c recitation2
 ```
+
+`git switch -c` creates the branch and moves you onto it in one step. **Work on the branch,
+never on `main`.** Check it with `git status` — the first line should read
+`On branch recitation2`.
+
+### 2. Commit after each exercise
+
+```bash
+git status                                              # run this constantly
+git add src/main/java/recitation/IntegerDivision.java
+git commit -m "Exercise 1: integer division"
+```
+
+Eight small commits, one per exercise, is the history I am looking for — not one commit at
+the end.
+
+### 3. Push
+
+```bash
 git push -u origin recitation2
 ```
 
-then open a pull request. **The pull request is the submission.** Push again as you finish
-the rest at home — the PR updates itself, and CI re-runs every time.
+The `-u` is only needed the first time. After that `git push` on its own is enough.
 
-**Due Sunday Sep 6, 11:59 PM**, same as the drills.
+**Committed is not submitted.** Committing saves your work on your laptop. Only pushing
+makes it exist for me.
+
+### 4. Open the pull request
+
+Go to your repo on GitHub. A yellow banner appears at the top:
+
+> **recitation2** had recent pushes &nbsp;·&nbsp; **[ Compare & pull request ]**
+
+Click it. If the banner is gone, use **Pull requests → New pull request** instead.
+
+Before you click create, check the dropdowns across the top:
+
+| Dropdown | Should say |
+|---|---|
+| **base repository** | `DSU-CSCI-121-F26/recitation2-<your-username>` — **your** repo |
+| **base** | `main` |
+| **head repository** | the same repo — yours again |
+| **compare** | `recitation2` |
+
+Read it as one sentence: *merge my `recitation2` branch into `main`, inside my own repo.*
+Give it a title, then click **Create pull request**.
+
+> **If you forked the public template instead of using your invited repo**, GitHub presets
+> **base repository** to `DSU-CSCI-121-F26/recitation2` — the template everyone shares. A
+> pull request there is not a submission, it is visible to the whole class, and I will
+> close it. Change **base repository** back to your own fork so the PR stays inside your
+> repo, with base `main` and compare `recitation2`.
+
+### 5. Watch CI
+
+Within a minute or two the PR shows a check named **tests**:
+
+| | |
+|---|---|
+| 🟢 green check | all 42 pass |
+| 🔴 red X | click **Details**, scroll to the first failure, and read what it wanted |
+
+CI runs the same `./mvnw test` you run locally, so there should be no surprises. **You can
+see your own grade before I do.** That is the entire reason the submission is a PR.
+
+### 6. Keep pushing until Sunday
+
+```bash
+git add -A
+git commit -m "Exercise 5: immutability"
+git push
+```
+
+The PR updates itself and CI re-runs on every push, so you never open a second one.
+**Leave the PR open — do not close it and do not merge it yourself.** I review it there,
+comment on specific lines, you push fixes, and I merge it when it is right.
+
+### Then go look at it
+
+Refresh the PR page and actually read it. Are your commits listed? Is the check green? The
+work is not done until you have seen it on the server.
 
 ---
 
@@ -191,6 +287,11 @@ when you know what to do and not how to say it.
 | `incompatible types: possible lossy conversion from int to char` | Exercise 3. Java will not narrow for you — say `(char)` |
 | `incompatible types: possible lossy conversion from double to int` | Exercise 6. Same rule, different pair of types |
 | Tests pass locally, CI is red | You committed but did not push, or pushed to the wrong branch |
+| No **Compare & pull request** banner on GitHub | It expires. Use **Pull requests → New pull request** |
+| The PR says it will merge into `DSU-CSCI-121-F26/recitation2` | Wrong repo — that is the shared template. Change **base repository** to your own |
+| `git push` rejected: `src refspec recitation2 does not match any` | You are still on `main`. `git switch -c recitation2`, then push |
+| The PR shows **0 commits** / nothing to compare | You pushed the branch but committed nothing to it yet |
+| Finished more exercises — do I open a second PR? | No. `git push` to the same branch; the open PR updates itself |
 
 ---
 
