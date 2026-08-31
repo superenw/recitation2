@@ -9,6 +9,10 @@ Java, and the handful of places where Java's answer is different from Python's a
 There are **eight exercises and 42 tests**. Thirty-nine of them are red right now. Turn
 them green.
 
+> **Section is fifty minutes and this is more than fifty minutes of work.** That is on
+> purpose. Get as far as you get in the room, **push before you leave**, and finish the
+> rest by **Sunday Sep 6**. Nobody is expected to go eight-for-eight at the bell.
+
 > **Three tests pass before you write anything.** They are `true`/`false` methods, and
 > the stub happens to guess right. A coin flip is not an implementation — write the real
 > one anyway.
@@ -35,13 +39,16 @@ open the class  →  read the comment  →  write one line  →  ./mvnw test  �
 Commit after **each exercise you finish**, not once at the end. Eight small commits is
 the shape of the history I am looking for.
 
-At the end of section:
+**Before you leave the room**, whatever you have finished:
 
 ```
 git push -u origin recitation2
 ```
 
-then open a pull request. **The pull request is the submission.**
+then open a pull request. **The pull request is the submission.** Push again as you finish
+the rest at home — the PR updates itself, and CI re-runs every time.
+
+**Due Sunday Sep 6, 11:59 PM**, same as the drills.
 
 ---
 
