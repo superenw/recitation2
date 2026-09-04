@@ -24,7 +24,7 @@ public class Concatenation {
      * @return a and b written one after the other
      */
     public String joinDigits(int a, int b) {
-        return null;
+        return "" + a + b;
     }
 
     /**
@@ -39,6 +39,7 @@ public class Concatenation {
      * @return a + b, written as text
      */
     public String sumAsText(int a, int b) {
-        return null;
+
+        return a + b + "";
     }
 }
