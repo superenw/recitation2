@@ -13,23 +13,23 @@ public class CharArithmetic {
 
     /**
      * The numeric code of a character.
-     *
+     * <p>
      * letterCode('A') is 65.  letterCode('a') is 97.
-     *
+     * <p>
      * Java will widen a char to an int on its own — no cast needed here.
      *
      * @param c any character
      * @return its numeric value
      */
     public int letterCode(char c) {
-        return 0;
+        return c;
     }
 
     /**
      * The next letter of the alphabet.
-     *
+     * <p>
      * nextLetter('A') is 'B'.  nextLetter('y') is 'z'.
-     *
+     * <p>
      * c + 1 gives you an int. Java will NOT narrow that back to a char for
      * you — you have to cast it: (char)(...)
      *
@@ -37,6 +37,6 @@ public class CharArithmetic {
      * @return the character one code point after it
      */
     public char nextLetter(char c) {
-        return ' ';
+        return (char)(c + 1);
     }
 }

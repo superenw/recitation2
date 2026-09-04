@@ -16,7 +16,7 @@ public class Formatting {
 
     /**
      * The value written with exactly two decimal places.
-     *
+     * <p>
      * twoPlaces(0.5142857) is "0.51".
      * twoPlaces(3.999) is "4.00" — this ROUNDS, where chop() did not.
      *
@@ -24,27 +24,27 @@ public class Formatting {
      * @return the value as text, to two decimal places
      */
     public String twoPlaces(double value) {
-        return null;
+        return String.format("%.2f", value);
     }
 
     /**
      * The value written with exactly four decimal places.
-     *
+     * <p>
      * fourPlaces(1.4815297665908702) is "1.4815".
      *
      * @param value any decimal number
      * @return the value as text, to four decimal places
      */
     public String fourPlaces(double value) {
-        return null;
+        return String.format("%.4f", value);
     }
 
     /**
      * The sentence Skill Builder 1 has to print, built as a string.
-     *
+     * <p>
      * spiceReport("Jean Claude", 1.4815297665908702) is
-     *     "Well Jean Claude, the spice value resulted in 1.4815"
-     *
+     * "Well Jean Claude, the spice value resulted in 1.4815"
+     * <p>
      * One String.format call. No printf, and no println.
      *
      * @param name  the user's name
@@ -52,6 +52,6 @@ public class Formatting {
      * @return the full sentence, with spice to four decimal places
      */
     public String spiceReport(String name, double spice) {
-        return null;
+        return String.format("Well %s, the spice value resulted in %.4f", name, spice);
     }
 }

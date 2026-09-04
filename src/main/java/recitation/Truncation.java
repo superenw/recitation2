@@ -22,7 +22,7 @@ public class Truncation {
      * @return the value with everything after the decimal point removed
      */
     public int chop(double value) {
-        return 0;
+        return (int) value;
     }
 
     /**
@@ -37,7 +37,7 @@ public class Truncation {
      * @return the value rounded to the nearest whole number
      */
     public int roundOff(double value) {
-        return 0;
+        return (int) Math.round(value);
     }
 
     /**
@@ -56,6 +56,6 @@ public class Truncation {
      * @return the value truncated to two decimal places
      */
     public double toHundredths(double value) {
-        return 0.0;
+        return (int) (value * 100) / 100.0;
     }
 }
